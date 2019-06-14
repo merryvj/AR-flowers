@@ -1,0 +1,38 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.187496374)
+
+newmtl flower
+Kd 0.980392 0.952941 0.768627
+Ka 0.980392 0.952941 0.768627
+Ks 0.898039 0.898039 0.898039
+Ke 0 0 0
+d 1
+Ns 47
+illum 2
+map_Kd PETAL012.JPG
+bump PETAL012.JPG
+map_bump PETAL012.JPG
+
+newmtl stem
+Kd 0.980392 0.952941 0.768627
+Ka 0.980392 0.952941 0.768627
+Ks 0.898039 0.898039 0.898039
+Ke 0 0 0
+d 1
+Ns 47
+illum 2
+map_Kd LEAF 288.JPG
+bump LEAF 288.JPG
+map_bump LEAF 288.JPG
+
+newmtl leaves
+Kd 0.560784 0.780392 0.568627
+Ka 0.560784 0.780392 0.568627
+Ks 0.898039 0.898039 0.898039
+Ke 0 0 0
+d 1
+illum 1
+map_Kd FULLFLZE.JPG
+bump FULLFLZE.JPG
+map_bump FULLFLZE.JPG
+

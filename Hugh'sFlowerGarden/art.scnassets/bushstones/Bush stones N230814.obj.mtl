@@ -1,0 +1,111 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.187496374)
+
+newmtl wire_154185229
+Kd 0.6 0.72549 0.894118
+Ka 0.2 0.2 0.2
+Ks 0.34902 0.34902 0.34902
+Ke 0 0 0
+d 1
+Ns 40
+illum 2
+
+newmtl wire_228184153
+Kd 0.890196 0.721569 0.6
+Ka 0.2 0.2 0.2
+Ks 0.34902 0.34902 0.34902
+Ke 0 0 0
+d 1
+Ns 40
+illum 2
+
+newmtl stone14
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.160784 0.160784 0.160784
+Ke 0 0 0
+d 1
+Ns 34
+illum 2
+map_Kd 9.tif
+
+newmtl stone11
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.356863 0.356863 0.356863
+Ke 0 0 0
+d 1
+Ns 39
+illum 2
+map_Kd Marble 9.tif
+
+newmtl stone7
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.25098 0.25098 0.25098
+Ke 0 0 0
+d 1
+Ns 46
+illum 2
+map_Kd 3(2).tif
+
+newmtl Material__54
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0 0 0
+Ke 0 0 0
+d 1
+Ns 23
+illum 2
+map_Kd 5(2).tif
+
+newmtl stone9
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.188235 0.188235 0.188235
+Ke 0 0 0
+d 1
+Ns 40
+illum 2
+map_Kd 2.tif
+
+newmtl Material__56
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.133333 0.133333 0.133333
+Ke 0 0 0
+d 1
+Ns 36
+illum 2
+map_Kd 10.tif
+
+newmtl stone6
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.12549 0.12549 0.12549
+Ke 0 0 0
+d 1
+Ns 40
+illum 2
+map_Kd 6.tif
+
+newmtl Material__62
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.176471 0.176471 0.176471
+Ke 0 0 0
+d 1
+Ns 29
+illum 2
+map_Kd 3(2).tif
+
+newmtl stone16_2_
+Kd 0.584314 0.584314 0.584314
+Ka 0.2 0.2 0.2
+Ks 0.203922 0.203922 0.203922
+Ke 0 0 0
+d 1
+Ns 23
+illum 2
+map_Kd MarbleGr.tif
+
