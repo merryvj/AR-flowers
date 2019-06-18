@@ -89,14 +89,40 @@ extension ViewController : ARSKViewDelegate {
         node.runAction(repeatForever)
     }
     
+    func flowerLabel(node: SCNNode, labelname: String) {
+        let plane = SCNNode(geometry: SCNPlane(width: 0.2,
+                                               height: 0.1))
+        plane.geometry?.firstMaterial?.diffuse.contents = UIImage(named: labelname)
+        plane.geometry?.firstMaterial?.isDoubleSided = true
+        plane.position = node.position
+        plane.position.y = node.position.y+0.6
+        plane.position.z = node.position.z+0.1
+        sceneView.scene.rootNode.addChildNode(plane)
+    }
+
+    
+    func addLabel(node: SCNNode){
+        switch node.name{
+        case "lily":
+            flowerLabel(node: node, labelname: "lily_label")
+        case "gardenflower":
+            flowerLabel(node: node, labelname: "flower_label")
+        case "lavender":
+            flowerLabel(node: node, labelname: "bush_label")
+        default:
+                flowerLabel(node: node, labelname: "lily_label")
+        }
+        
+        
+    }
+    
     @objc func getPlantInfo(withGestureRecognizer gestureRecognizer: UILongPressGestureRecognizer){
         guard gestureRecognizer.state == .ended else{return}
         let taplocation = gestureRecognizer.location(in: sceneView)
         let hittestreults = sceneView.hitTest(taplocation,options: [:])
         guard let hitTestResult = hittestreults.first else { return }
         let finalnode = hitTestResult.node
-        print(finalnode.name)
-        
+        addLabel(node: finalnode)
         addAnimation(node: finalnode)
     }
     
