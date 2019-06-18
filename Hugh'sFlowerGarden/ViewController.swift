@@ -14,6 +14,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    
     var focusSquare: FocusSquare?
     var screenCenter: CGPoint!
   
@@ -25,6 +26,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         screenCenter = view.center
         addTapGestureToSceneView()
+        addLongPressGestureToSceneView()
 
         // Set the view's delegate
         sceneView.delegate = self
@@ -65,18 +67,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func addTapGestureToSceneView() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.addPlantToSceneView(withGestureRecognizer:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
+        
     }
+    
+    func addLongPressGestureToSceneView(){
+        let pressGestureRecognizer = UILongPressGestureRecognizer(target: self, action:
+            #selector(ViewController.getPlantInfo(withGestureRecognizer:)))
+        sceneView.addGestureRecognizer(pressGestureRecognizer)
+    }
+    
+    
     
     func updateFocusSquare() {
         guard let focusSquareLocal = focusSquare else {return}
         let hitTest = sceneView.hitTest(screenCenter, types: .existingPlaneUsingExtent)
         if let hitTestResult = hitTest.first {
-            print("Focus square hits a plane")
+            //print("Focus square hits a plane")
             let canAddNewModel = hitTestResult.anchor is ARPlaneAnchor
             focusSquareLocal.isClosed = canAddNewModel
             
         } else {
-            print("Focus square does not hit a plane")
+            //print("Focus square does not hit a plane")
             focusSquareLocal.isClosed = false
             
         }
@@ -86,17 +97,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     
-    //long press to remove object
-    @objc func longPress(_ gesture: UILongPressGestureRecognizer) {
-        let tappedNode = self.sceneView.hitTest(gesture.location(in: gesture.view), options: [:])
-        
-        if !tappedNode.isEmpty {
-            let node = tappedNode[0].node
-            node.removeFromParentNode()
-        } else {
-            return
-        }
-    }
     
 
     // MARK: - ARSCNViewDelegate

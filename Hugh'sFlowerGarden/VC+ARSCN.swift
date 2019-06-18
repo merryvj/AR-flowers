@@ -15,7 +15,7 @@ extension ViewController : ARSKViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard anchor is ARPlaneAnchor else {return}
         
-        print("Horizontal surface found")
+        //print("Horizontal surface found")
         //let planeAnchor = anchor as! ARPlaneAnchor
         //let planeNode = createPlane(planeAnchor: planeAnchor)
         //planeNode.eulerAngles.x = GLKMathDegreesToRadians(-90)
@@ -75,6 +75,38 @@ extension ViewController : ARSKViewDelegate {
         
     }
     
+    func addAnimation(node: SCNNode) {
+        let hoverUp = SCNAction.moveBy(x: 0, y: 0.05, z: 0, duration: 2.5)
+        let rotateLeft = SCNAction.rotateBy(x: -0.2, y: -0.2, z: 0, duration: 2)
+        let rotateRight = SCNAction.rotateBy(x: 0.2, y: 0.2, z: 0, duration: 2)
+        let hoverDown = SCNAction.moveBy(x: 0, y: -0.05, z: 0, duration: 2.5)
+        //let hoverSequence = SCNAction.sequence([hoverUp, hoverDown])
+        let one = SCNAction.sequence([hoverUp, rotateLeft])
+        let two = SCNAction.group([one, rotateRight])
+        let final = SCNAction.group([two,hoverDown])
+        //let rotateAndHover = SCNAction.group([rotateOne, hoverSequence])
+        let repeatForever = SCNAction.repeatForever(final)
+        node.runAction(repeatForever)
+    }
+    
+    @objc func getPlantInfo(withGestureRecognizer gestureRecognizer: UILongPressGestureRecognizer){
+        guard gestureRecognizer.state == .ended else{return}
+        let taplocation = gestureRecognizer.location(in: sceneView)
+        let hittestreults = sceneView.hitTest(taplocation,options: [:])
+        guard let hitTestResult = hittestreults.first else { return }
+        let finalnode = hitTestResult.node
+        print(finalnode.name)
+        
+        addAnimation(node: finalnode)
+    }
+    
+    /*
+    
+    func showPlantDetail(plantName: String){
+        
+    }
+    */
     
    
 }
+

@@ -29,15 +29,18 @@ extension ViewController {
     @IBAction func lilyButtonTapped(_ sender: Any) {
         modelToAdd = "lily"
         plantNameLabel.text = modelToAdd
+
     }
     
     @IBAction func lavenderButtonTapped(_ sender: Any) {
         modelToAdd = "lavender"
         plantNameLabel.text = modelToAdd
+
     }
     
     @objc func addPlantToSceneView(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let tapLocation = recognizer.location(in: sceneView)
+        
         let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
         
         let modelName = modelToAdd
@@ -49,9 +52,11 @@ extension ViewController {
         guard let worldTransformColumn3 = hitTestResults.first?.worldTransform.columns.3 else {return}
         model.position = SCNVector3(worldTransformColumn3.x, worldTransformColumn3.y, worldTransformColumn3.z)
         
+        model.name = modelName //used for recognizing the node on taps
+        
         sceneView.scene.rootNode.addChildNode(model)
         print("\(String(describing: modelName)) added successfully")
-        
+                
     }
 
   
